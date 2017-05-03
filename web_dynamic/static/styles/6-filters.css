@@ -37,6 +37,7 @@ button:hover, button:focus {
     padding-left: 30px;
     display: inline-block;
     position: relative;
+    border-right: 1em solid transparent;
 }
 
 .locations {
@@ -53,10 +54,15 @@ h2, h3, h4 {
 }
 
 .locations h4, .amenities h4 {
-    padding-top: 15px;
+    padding-top: 5px;
     font-weight: 400;
     font-size: 14px;
-    line-height: 0%;
+    line-height: inherit;
+    width: inherit;
+    position: fixed;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 ul {
@@ -102,4 +108,8 @@ ul {
 
 .amenities:hover .popover {
     display: block;
+}
+
+input[type='checkbox'] {
+    margin-right: 5px;
 }
