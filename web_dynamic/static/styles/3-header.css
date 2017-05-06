@@ -7,4 +7,22 @@ header {
     background-image:url("../images/logo.png");
     background-repeat: no-repeat;
     background-position: 20px 50%;
+    position: relative;
+}
+
+.available#api_status {
+    background-color: #ff545f;
+}
+
+#api_status {
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+    background-color: #cccccc;
 }
