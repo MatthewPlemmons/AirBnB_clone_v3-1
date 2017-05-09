@@ -1,8 +1,10 @@
 // Execute after DOM is loaded.
 $(function () {
 
-  // Keep track of currently selected amenities.
   const dict = {};
+  let users = {};
+
+  // Keep track of currently selected amenities.
   $(':checkbox').change(function () {
     if ($(this).is(':checked')) {
       dict[this.id] = this.name;
@@ -18,8 +20,10 @@ $(function () {
     }).join(', '));
   });
 
+
   checkApiStatus();
-  fetchPlaces();
+  users = getUserNames();
+  fetchPlaces(users);
 
   // Get places based on amenities avaiable when Search button is clicked.
   $('section.filters button').click(function () {
@@ -27,7 +31,7 @@ $(function () {
     for (let k in dict) {
       amenity_ids.push(k);
     }
-    fetchPlaces(amenity_ids);
+    fetchPlaces(users, amenity_ids);
   });
 });
 
@@ -54,8 +58,7 @@ function getUserNames () {
 }
 
 // Get place objects.
-function fetchPlaces (a = []) {
-  let users = getUserNames();
+function fetchPlaces (users = {}, a = []) {
   a = JSON.stringify({'amenities': a});
   $.ajax({
     url: 'http://localhost:5001/api/v1/places_search/',
