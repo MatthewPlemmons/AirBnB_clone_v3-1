@@ -58,6 +58,8 @@ h2, h3, h4 {
     font-weight: 400;
     font-size: 14px;
     line-height: inherit;
+    width: inherit;
+    position: fixed;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
